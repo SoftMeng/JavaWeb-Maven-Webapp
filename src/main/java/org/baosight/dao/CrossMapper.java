@@ -1,5 +1,7 @@
 package org.baosight.dao;
 
+import java.util.List;
+
 import org.baosight.model.Cross;
 
 public interface CrossMapper {
@@ -14,4 +16,6 @@ public interface CrossMapper {
     int updateByPrimaryKeySelective(Cross record);
 
     int updateByPrimaryKey(Cross record);
-}
+    
+    List<Cross> getAll();
+ }

@@ -1,5 +1,8 @@
 package org.baosight.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.baosight.model.Cross;
@@ -8,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 
 //http://localhost:8080/JavaWeb/crossController/showCross.do
@@ -27,10 +31,13 @@ public class CrossController {
 	}
 
 	@RequestMapping("/showCross/{crossid}")
-	public String showCross(@PathVariable Integer crossid,HttpServletRequest request){
+	@ResponseBody
+	public List showCross(@PathVariable Integer crossid,HttpServletRequest request){
+		List<Cross> l = new ArrayList<Cross>();
 		Cross c = crossService.getCrossByID(crossid);
 		request.setAttribute("cross", c);
-		return "showCross";
+		l.add(c);
+		return l;
 	}
 
 }

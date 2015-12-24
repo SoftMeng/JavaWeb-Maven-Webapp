@@ -1,6 +1,8 @@
 package org.baosight.service;
 
 
+import java.util.List;
+
 import org.baosight.dao.CrossMapper;
 import org.baosight.model.Cross;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,12 @@ public class CrossServiceImpl implements CrossServiceI {
 	public Cross getCrossByID(Integer crossid) {
 		// TODO Auto-generated method stub
 		return crossMapper.selectByPrimaryKey(crossid);
+	}
+
+	@Override
+	public List<Cross> getAll() {
+		// TODO Auto-generated method stub
+		return crossMapper.getAll();
 	}
 
 }
