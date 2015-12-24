@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.baosight.dao.CrossMapper">
+  <resultMap id="BaseResultMap" type="org.baosight.model.Cross">
+    <id column="CROSSID" jdbcType="DECIMAL" property="crossid" />
+    <result column="REGIONID" jdbcType="DECIMAL" property="regionid" />
+    <result column="SUBREGIONID" jdbcType="DECIMAL" property="subregionid" />
+    <result column="REGIONCROSSID" jdbcType="DECIMAL" property="regioncrossid" />
+    <result column="RELATEDCROSSID" jdbcType="VARCHAR" property="relatedcrossid" />
+    <result column="CROSSNAME" jdbcType="VARCHAR" property="crossname" />
+    <result column="MAXG" jdbcType="DECIMAL" property="maxg" />
+    <result column="MING" jdbcType="DECIMAL" property="ming" />
+    <result column="HASCLOSECROSS" jdbcType="DECIMAL" property="hasclosecross" />
+    <result column="ISKEYCROSS" jdbcType="DECIMAL" property="iskeycross" />
+    <result column="CYCLETYPE" jdbcType="DECIMAL" property="cycletype" />
+    <result column="OPTIBASEPLANID" jdbcType="DECIMAL" property="optibaseplanid" />
+    <result column="PROPPARAMVERSION" jdbcType="DECIMAL" property="propparamversion" />
+    <result column="YELLOWFLASHTIME" jdbcType="DECIMAL" property="yellowflashtime" />
+    <result column="ALLREDTIME" jdbcType="DECIMAL" property="allredtime" />
+    <result column="CONTROLFUNCTION" jdbcType="DECIMAL" property="controlfunction" />
+    <result column="VERSION" jdbcType="DECIMAL" property="version" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    CROSSID, REGIONID, SUBREGIONID, REGIONCROSSID, RELATEDCROSSID, CROSSNAME, MAXG, MING, 
+    HASCLOSECROSS, ISKEYCROSS, CYCLETYPE, OPTIBASEPLANID, PROPPARAMVERSION, YELLOWFLASHTIME, 
+    ALLREDTIME, CONTROLFUNCTION, VERSION
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from B_MITCO_CROSS
+    where CROSSID = #{crossid,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from B_MITCO_CROSS
+    where CROSSID = #{crossid,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="org.baosight.model.Cross">
+    insert into B_MITCO_CROSS (CROSSID, REGIONID, SUBREGIONID, 
+      REGIONCROSSID, RELATEDCROSSID, CROSSNAME, 
+      MAXG, MING, HASCLOSECROSS, 
+      ISKEYCROSS, CYCLETYPE, OPTIBASEPLANID, 
+      PROPPARAMVERSION, YELLOWFLASHTIME, ALLREDTIME, 
+      CONTROLFUNCTION, VERSION)
+    values (#{crossid,jdbcType=DECIMAL}, #{regionid,jdbcType=DECIMAL}, #{subregionid,jdbcType=DECIMAL}, 
+      #{regioncrossid,jdbcType=DECIMAL}, #{relatedcrossid,jdbcType=VARCHAR}, #{crossname,jdbcType=VARCHAR}, 
+      #{maxg,jdbcType=DECIMAL}, #{ming,jdbcType=DECIMAL}, #{hasclosecross,jdbcType=DECIMAL}, 
+      #{iskeycross,jdbcType=DECIMAL}, #{cycletype,jdbcType=DECIMAL}, #{optibaseplanid,jdbcType=DECIMAL}, 
+      #{propparamversion,jdbcType=DECIMAL}, #{yellowflashtime,jdbcType=DECIMAL}, #{allredtime,jdbcType=DECIMAL}, 
+      #{controlfunction,jdbcType=DECIMAL}, #{version,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="org.baosight.model.Cross">
+    insert into B_MITCO_CROSS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="crossid != null">
+        CROSSID,
+      </if>
+      <if test="regionid != null">
+        REGIONID,
+      </if>
+      <if test="subregionid != null">
+        SUBREGIONID,
+      </if>
+      <if test="regioncrossid != null">
+        REGIONCROSSID,
+      </if>
+      <if test="relatedcrossid != null">
+        RELATEDCROSSID,
+      </if>
+      <if test="crossname != null">
+        CROSSNAME,
+      </if>
+      <if test="maxg != null">
+        MAXG,
+      </if>
+      <if test="ming != null">
+        MING,
+      </if>
+      <if test="hasclosecross != null">
+        HASCLOSECROSS,
+      </if>
+      <if test="iskeycross != null">
+        ISKEYCROSS,
+      </if>
+      <if test="cycletype != null">
+        CYCLETYPE,
+      </if>
+      <if test="optibaseplanid != null">
+        OPTIBASEPLANID,
+      </if>
+      <if test="propparamversion != null">
+        PROPPARAMVERSION,
+      </if>
+      <if test="yellowflashtime != null">
+        YELLOWFLASHTIME,
+      </if>
+      <if test="allredtime != null">
+        ALLREDTIME,
+      </if>
+      <if test="controlfunction != null">
+        CONTROLFUNCTION,
+      </if>
+      <if test="version != null">
+        VERSION,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="crossid != null">
+        #{crossid,jdbcType=DECIMAL},
+      </if>
+      <if test="regionid != null">
+        #{regionid,jdbcType=DECIMAL},
+      </if>
+      <if test="subregionid != null">
+        #{subregionid,jdbcType=DECIMAL},
+      </if>
+      <if test="regioncrossid != null">
+        #{regioncrossid,jdbcType=DECIMAL},
+      </if>
+      <if test="relatedcrossid != null">
+        #{relatedcrossid,jdbcType=VARCHAR},
+      </if>
+      <if test="crossname != null">
+        #{crossname,jdbcType=VARCHAR},
+      </if>
+      <if test="maxg != null">
+        #{maxg,jdbcType=DECIMAL},
+      </if>
+      <if test="ming != null">
+        #{ming,jdbcType=DECIMAL},
+      </if>
+      <if test="hasclosecross != null">
+        #{hasclosecross,jdbcType=DECIMAL},
+      </if>
+      <if test="iskeycross != null">
+        #{iskeycross,jdbcType=DECIMAL},
+      </if>
+      <if test="cycletype != null">
+        #{cycletype,jdbcType=DECIMAL},
+      </if>
+      <if test="optibaseplanid != null">
+        #{optibaseplanid,jdbcType=DECIMAL},
+      </if>
+      <if test="propparamversion != null">
+        #{propparamversion,jdbcType=DECIMAL},
+      </if>
+      <if test="yellowflashtime != null">
+        #{yellowflashtime,jdbcType=DECIMAL},
+      </if>
+      <if test="allredtime != null">
+        #{allredtime,jdbcType=DECIMAL},
+      </if>
+      <if test="controlfunction != null">
+        #{controlfunction,jdbcType=DECIMAL},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.baosight.model.Cross">
+    update B_MITCO_CROSS
+    <set>
+      <if test="regionid != null">
+        REGIONID = #{regionid,jdbcType=DECIMAL},
+      </if>
+      <if test="subregionid != null">
+        SUBREGIONID = #{subregionid,jdbcType=DECIMAL},
+      </if>
+      <if test="regioncrossid != null">
+        REGIONCROSSID = #{regioncrossid,jdbcType=DECIMAL},
+      </if>
+      <if test="relatedcrossid != null">
+        RELATEDCROSSID = #{relatedcrossid,jdbcType=VARCHAR},
+      </if>
+      <if test="crossname != null">
+        CROSSNAME = #{crossname,jdbcType=VARCHAR},
+      </if>
+      <if test="maxg != null">
+        MAXG = #{maxg,jdbcType=DECIMAL},
+      </if>
+      <if test="ming != null">
+        MING = #{ming,jdbcType=DECIMAL},
+      </if>
+      <if test="hasclosecross != null">
+        HASCLOSECROSS = #{hasclosecross,jdbcType=DECIMAL},
+      </if>
+      <if test="iskeycross != null">
+        ISKEYCROSS = #{iskeycross,jdbcType=DECIMAL},
+      </if>
+      <if test="cycletype != null">
+        CYCLETYPE = #{cycletype,jdbcType=DECIMAL},
+      </if>
+      <if test="optibaseplanid != null">
+        OPTIBASEPLANID = #{optibaseplanid,jdbcType=DECIMAL},
+      </if>
+      <if test="propparamversion != null">
+        PROPPARAMVERSION = #{propparamversion,jdbcType=DECIMAL},
+      </if>
+      <if test="yellowflashtime != null">
+        YELLOWFLASHTIME = #{yellowflashtime,jdbcType=DECIMAL},
+      </if>
+      <if test="allredtime != null">
+        ALLREDTIME = #{allredtime,jdbcType=DECIMAL},
+      </if>
+      <if test="controlfunction != null">
+        CONTROLFUNCTION = #{controlfunction,jdbcType=DECIMAL},
+      </if>
+      <if test="version != null">
+        VERSION = #{version,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where CROSSID = #{crossid,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.baosight.model.Cross">
+    update B_MITCO_CROSS
+    set REGIONID = #{regionid,jdbcType=DECIMAL},
+      SUBREGIONID = #{subregionid,jdbcType=DECIMAL},
+      REGIONCROSSID = #{regioncrossid,jdbcType=DECIMAL},
+      RELATEDCROSSID = #{relatedcrossid,jdbcType=VARCHAR},
+      CROSSNAME = #{crossname,jdbcType=VARCHAR},
+      MAXG = #{maxg,jdbcType=DECIMAL},
+      MING = #{ming,jdbcType=DECIMAL},
+      HASCLOSECROSS = #{hasclosecross,jdbcType=DECIMAL},
+      ISKEYCROSS = #{iskeycross,jdbcType=DECIMAL},
+      CYCLETYPE = #{cycletype,jdbcType=DECIMAL},
+      OPTIBASEPLANID = #{optibaseplanid,jdbcType=DECIMAL},
+      PROPPARAMVERSION = #{propparamversion,jdbcType=DECIMAL},
+      YELLOWFLASHTIME = #{yellowflashtime,jdbcType=DECIMAL},
+      ALLREDTIME = #{allredtime,jdbcType=DECIMAL},
+      CONTROLFUNCTION = #{controlfunction,jdbcType=DECIMAL},
+      VERSION = #{version,jdbcType=DECIMAL}
+    where CROSSID = #{crossid,jdbcType=DECIMAL}
+  </update>
+
+</mapper>
