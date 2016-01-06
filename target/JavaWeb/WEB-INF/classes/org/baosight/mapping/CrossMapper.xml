@@ -18,7 +18,7 @@
     <result column="YELLOWFLASHTIME" jdbcType="DECIMAL" property="yellowflashtime" />
     <result column="ALLREDTIME" jdbcType="DECIMAL" property="allredtime" />
     <result column="CONTROLFUNCTION" jdbcType="DECIMAL" property="controlfunction" />
-    <result column="VERSION" jdbcType="DECIMAL" property="version" />
+    <result column="VERSION" jdbcType="DECIMAL" property="version" /> 
   </resultMap>
   <sql id="Base_Column_List">
     CROSSID, REGIONID, SUBREGIONID, REGIONCROSSID, RELATEDCROSSID, CROSSNAME, MAXG, MING, 
@@ -232,5 +232,10 @@
       VERSION = #{version,jdbcType=DECIMAL}
     where CROSSID = #{crossid,jdbcType=DECIMAL}
   </update>
+
+<select id="getAll" resultMap="BaseResultMap">
+
+select * from B_MITCO_CROSS
+</select>
 
 </mapper>

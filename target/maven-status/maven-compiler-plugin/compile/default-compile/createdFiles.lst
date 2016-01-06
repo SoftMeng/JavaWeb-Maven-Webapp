@@ -1,0 +1,5 @@
+org\baosight\service\CrossServiceI.class
+org\baosight\controller\CrossController.class
+org\baosight\dao\CrossMapper.class
+org\baosight\service\CrossServiceImpl.class
+org\baosight\model\Cross.class
